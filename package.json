@@ -1,0 +1,37 @@
+{
+  "name": "myst-role-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "rspack build",
+    "dev": "rspack dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.18.0",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "@module-federation/enhanced": "2.0.1",
+    "@module-federation/node": "2.7.32",
+    "@rspack/cli": "^2.2.8",
+    "@rspack/core": "^2.2.8",
+    "@rspack/dev-server": "^2.2.1",
+    "@types/node": "^26.6.5",
+    "run-script-webpack-plugin": "^0.2.3",
+    "typescript": "^5.9.3",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "@lumino/coreutils": "^2.2.3",
+    "myst-cli": "^1.11.0",
+    "myst-common": "^1.10.1"
+  }
+}
