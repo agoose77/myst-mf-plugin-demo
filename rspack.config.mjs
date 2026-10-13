@@ -35,21 +35,11 @@ export default defineConfig({
       },
     ],
   },
-  externals: [
-    nodeExternals({
-      allowlist: [/@rspack\/core\/hot\/poll/],
-    }),
-  ],
   plugins: [
-    process.env.NODE_ENV !== "production" &&
-      new RunScriptWebpackPlugin({
-        name: "main.js",
-        autoRestart: false,
-      }),
     new ModuleFederationPlugin({
       experiments: { asyncStartup: true },
       isServer: true,
-      name: "myst-role-plugin",
+      name: "myst_typst_plugin",
       library: { type: "commonjs-module" },
       filename: "remoteEntry.js",
       exposes: {
@@ -58,6 +48,12 @@ export default defineConfig({
       runtimePlugins: [
         require.resolve("@module-federation/node/runtimePlugin"),
       ],
+      shared: {
+        "myst-to-typst": {
+          singleton: true,
+          import: false,
+        },
+      },
     }),
   ],
   devServer: {

@@ -32,6 +32,9 @@
   "dependencies": {
     "@lumino/coreutils": "^2.2.3",
     "myst-cli": "^1.11.0",
-    "myst-common": "^1.10.1"
+    "myst-common": "^1.10.1",
+    "myst-spec": "^0.0.6",
+    "myst-to-typst": "^0.0.39",
+    "vfile": "^6.0.3"
   }
 }

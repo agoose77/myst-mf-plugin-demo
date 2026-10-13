@@ -1,29 +1,53 @@
-import type { ISession } from "myst-cli";
-import type { MystPlugin, RoleSpec } from "myst-common";
+// Lumino / extension imports
 import type { IPlugin } from "@lumino/coreutils";
+import { IApp } from "myst-common";
 
-type ExtendedSession = {
-  registerPlugin(plugin: MystPlugin): void;
-};
+// Extension-specific imports
+import type { Root, Parent } from "myst-spec";
+import type { VFile } from "vfile";
+import type { TypstResult } from "myst-to-typst";
 
-const role = {
-  name: "angus",
-  doc: "An example role.",
-  body: {
-          type: "myst"
-  },
-  run() {
-    return [{ type: "text", value: "It's an angus!!" }];
-  },
-} satisfies RoleSpec;
+// Token we're providing
+import { IMystToTypst } from "myst-to-typst";
 
-const plugin = { name: "My Plugin", roles: [role] };
+/**
+ * Custom plugin!
+ *
+ * This plugin always returns the same text
+ * for any node it tries to convert to Typst
+ */
+const customMystToTypst = function (this: any) {
+  console.log("Running custom typst");
+  this.Compiler = (node: Parent, file: VFile) => {
+    const result: TypstResult = {
+      macros: [],
+      commands: {},
+      value: `
+I'm typst! The content doesn't matter, Typst is always fab.
+      `,
+    };
+    file.result = result;
+    return file;
+  };
 
+  return (node: Root) => {
+    return node;
+  };
+} as any as IMystToTypst;
+
+/**
+ * Expose the custom IMystToTypst implementation as a Lumino extension
+ *
+ * This allows mystmd to request it, and receive it
+ */
 export default {
   id: "myst-demo:custom-plugin",
-  autoStart: true,
+  autoStart: false,
   requires: [],
-  activate: (app: ISession): void => {
-    (app as any as ExtendedSession).registerPlugin(plugin);
+  provides: IMystToTypst,
+  activate: (app: IApp): IMystToTypst => {
+    console.log("[myst_typst_plugin] Providing custom IMystToTypst");
+
+    return customMystToTypst;
   },
-} satisfies IPlugin<ISession, void>;
+} satisfies IPlugin<IApp, IMystToTypst>;

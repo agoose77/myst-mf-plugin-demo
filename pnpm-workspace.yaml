@@ -1,0 +1,3 @@
+overrides:
+  "myst-common": "link:/home/angus/Git/mystmd/packages/myst-common/dist/"
+  "myst-to-typst": "link:/home/angus/Git/mystmd/packages/myst-to-typst/dist/"
