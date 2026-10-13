@@ -5,6 +5,8 @@ MyST uses `myst-to-typst` to render mdast into Typst strings before invoking a t
 This demo shows how a third-party plugin could use dependency injection (Lumino) and code hotloading (Module Federation) to easily define such configuration.
 
 ### How to use this
+> [!Important]
+> Requires https://github.com/jupyter-book/mystmd/pull/3086 for mystmd
 
 1. Link the `myst-common` and `myst-to-typst` packages to the current workspace by editing `pnpm-workspace.yaml`.
 2. Run `pnpm install`.
