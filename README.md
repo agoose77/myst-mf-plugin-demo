@@ -4,6 +4,13 @@ MyST uses `myst-to-typst` to render mdast into Typst strings before invoking a t
 
 This demo shows how a third-party plugin could use dependency injection (Lumino) and code hotloading (Module Federation) to easily define such configuration.
 
+**Before**
+<img width="706" height="363" alt="image" src="https://github.com/user-attachments/assets/13e3a480-f251-46aa-aa64-3ed6cf72384e" />
+
+**After**
+<img width="706" height="363" alt="image" src="https://github.com/user-attachments/assets/20d0114a-344d-4257-916b-4911347cb4fe" />
+
+
 ### How to use this
 > [!Important]
 > Requires https://github.com/jupyter-book/mystmd/pull/3086 for mystmd
