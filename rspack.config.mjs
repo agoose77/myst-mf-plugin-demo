@@ -37,6 +37,7 @@ export default defineConfig({
   },
   plugins: [
     new ModuleFederationPlugin({
+      dts: false,
       experiments: { asyncStartup: true },
       isServer: true,
       name: "myst_typst_plugin",
@@ -60,6 +61,6 @@ export default defineConfig({
     devMiddleware: {
       writeToDisk: true,
     },
-          port: 3000
+    port: 3000,
   },
 });
