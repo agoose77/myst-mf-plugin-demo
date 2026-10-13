@@ -60,5 +60,6 @@ export default defineConfig({
     devMiddleware: {
       writeToDisk: true,
     },
+          port: 3000
   },
 });
