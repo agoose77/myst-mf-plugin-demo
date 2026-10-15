@@ -15,6 +15,7 @@ export default defineConfig({
   },
   output: {
     clean: true,
+    path: "myst_typst_plugin",
   },
   resolve: {
     extensions: ["...", ".ts", ".tsx", ".jsx"],

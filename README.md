@@ -21,5 +21,5 @@ This demo shows how a third-party plugin could use dependency injection (Lumino)
 4. In `content/` run the following in a new terminal
 ```bash
 alias custom-myst='<PATH-TO-MYSTMD-BINARY>'
-MYSTMD_REMOTES="myst_typst_plugin@http://localhost:3000/remoteEntry.js" custom-myst build --pdf main.md
+MYSTMD_EXTENSIONS_PATH="$PWD/../" custom-myst build --pdf main.md
 ```
